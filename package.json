@@ -1,0 +1,31 @@
+{
+  "name": "geetest-captcha",
+  "version": "1.1.0",
+  "main": "dist/geetest-captcha.umd.min.js",
+  "description": "package for geetest web",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib --name geetest-captcha src/index.js",
+    "lint": "vue-cli-service lint --fix"
+  },
+  "keywords": [
+    "geetest",
+    "captcha"
+  ],
+  "author": "falstack <icesilt@outlook.com>",
+  "bugs": {
+    "url": "https://github.com/falstack/geetest/issues"
+  },
+  "homepage": "https://github.com/falstack/geetest",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
