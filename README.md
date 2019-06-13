@@ -1,29 +1,52 @@
-# geetest-captcha
+### get start
 
-## Project setup
-```
-yarn install
-```
+```javascript
+import Captcha from 'geetest-captcha'
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+const getGeetestConfigApi = () => new Promise(resolve => {
+  resolve({
+    gt,
+    challenge,
+    success,
+    // others...
+  })
+})
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+Vue.prototype.$captcha = new Captcha(getGeetestConfigApi)
 
-### Run your tests
-```
-yarn run test
-```
+this.$captcha(({ data, captcha }) => {
+    // do something on success
+    // data = {
+    //   geetest_challenge: result.geetest_challenge,
+    //   geetest_seccode: result.geetest_seccode,
+    //   geetest_validate: result.geetest_validate,
+    //   others_get_geetest_api_result
+    // }
+    // captcha = geetest instance
+})
 
-### Lints and fixes files
+this.$captcha({
+    config: {
+      // docs：https://docs.geetest.com/install/deploy/client/web#%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0
+    },
+    el: document.getElementById('xxx'), // not required, use at captcha.appendTo
+    async: true, // not required, use at product = bind, click verify or api resolve verify
+    ready: (() => {
+        // do something
+    }),
+    success: ({ data, captcha }) => {
+        // do something
+    },
+    error: (err => {
+        // do something
+        // err = {
+        //   code: -1,        // -1：window.initGeetest is not defined, -2：geetest onError
+        //   status_code: -1,
+        //   message: 'xxx'
+        // }
+    }),
+    close: (() => {
+        // do something
+    })
+})
 ```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
